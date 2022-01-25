@@ -30,7 +30,7 @@ for task_fn in task_fns:
             # Update all_descriptions
             all_descriptions.append({
                 'larc_id': larc_id,
-                'task_name': task_name,
+                'task_name': task_name[:task_name.find('.json')],
                 'see_description': see_description,
                 'grid_description': grid_description,
                 'do_description': do_description,
