@@ -35,12 +35,14 @@ for task_fn in task_fns:
                 'grid_description': grid_description,
                 'do_description': do_description,
                 'succeeded_verification': d['succeeded_verification'],
+                'total_nb_builds': len(d['builds']),
                 'nb_successful_builds': nb_success_builds
             })
 print('len(all_descriptions): {}'.format(len(all_descriptions)))
 
 fields = ['larc_id', 'task_name', 'see_description', 'grid_description',
-          'do_description', 'succeeded_verification', 'nb_successful_builds']
+          'do_description', 'succeeded_verification', 'total_nb_builds',
+          'nb_successful_builds']
 with open('larc_descriptions.csv', 'w+') as csvfile:
     # creating a csv writer object
     csvwriter = csv.writer(csvfile)
@@ -57,6 +59,7 @@ with open('larc_descriptions.csv', 'w+') as csvfile:
             d['grid_description'],
             d['do_description'],
             d['succeeded_verification'],
+            d['total_nb_builds'],
             d['nb_successful_builds']
         ]
         csvwriter.writerow(row)
